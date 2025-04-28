@@ -4,6 +4,8 @@
 ".\objects\main.o"
 ".\objects\retarget.o"
 ".\objects\lcd.o"
+".\objects\dio.o"
+".\objects\potentiometer.o"
 ".\objects\clib_os.o"
 ".\objects\cmsis_os2.o"
 ".\objects\os_systick.o"

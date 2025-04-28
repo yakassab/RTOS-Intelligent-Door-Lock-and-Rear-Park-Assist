@@ -1,5 +1,13 @@
 #include "headers.h"
 
+// ======== CONNECTIONS: ========
+/*
+		PA6 to SCL
+		PA7 to SDA
+		
+		PE2 to Potentiometer
+*/
+
 int main(void)
 {
     I2C1_Init(); // (PA6 to SCL and PA7 to SDA)
@@ -12,17 +20,32 @@ int main(void)
 //	    LCD_set_cursor(0, 0);
 
 // LCD_print_int(x);
-    
+	
+	
+	
+	Potentiometer_Init();
+    delay_ms(100);
+
+	
+	
+	
+	
     // Write to first line
-    LCD_set_cursor(0, 1);
+    LCD_set_cursor(0, 0);
     LCD_write_string("mia mia");
 
-//    // Write to second line
+// Write to second line
     LCD_set_cursor(1, 0);
     LCD_write_string("===========");
     
     while(1) {
-        // Main loop
-        // You can add code here to update the display periodically if needed
+        
+				float x = Potentiometer_GetSpeed();
+			LCD_command(LCD_CLEAR);
+	LCD_set_cursor(0, 0);
+	LCD_write_string("Veolcity: ");
+	LCD_print_int(x);
+	delay_ms(100);
+			
     }
 }

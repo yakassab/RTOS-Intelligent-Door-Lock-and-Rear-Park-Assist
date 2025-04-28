@@ -410,6 +410,16 @@
               <FileType>1</FileType>
               <FilePath>.\LCD.c</FilePath>
             </File>
+            <File>
+              <FileName>DIO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>potentiometer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\potentiometer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -1,7 +1,6 @@
 #ifndef LCD_H
 #define LCD_H
 
-
 #include "headers.h"
 
 // TM4C123GH6PM Register definitions
