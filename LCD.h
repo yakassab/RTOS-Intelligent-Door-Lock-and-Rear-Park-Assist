@@ -1,8 +1,8 @@
+#ifndef LCD_H
 #define LCD_H
 
 
-#include <stdint.h>
-#include <stdbool.h>
+#include "headers.h"
 
 // TM4C123GH6PM Register definitions
 #define SYSCTL_BASE             0x400FE000
@@ -56,3 +56,6 @@ void LCD_print_int(int value);
 #define LCD_RW 0x02  // Read/Write bit
 #define LCD_RS 0x01  // Register select bit
 #define LCD_BACKLIGHT 0x08  // Backlight control
+
+
+#endif

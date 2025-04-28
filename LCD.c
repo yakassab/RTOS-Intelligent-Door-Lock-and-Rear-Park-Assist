@@ -1,5 +1,4 @@
-# include "LCD.h"
-
+#include "headers.h"
 
 // I2C initialization and GPIO alternate function configuration
 void I2C1_Init(void)
