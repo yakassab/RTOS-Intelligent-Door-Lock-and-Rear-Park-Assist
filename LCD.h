@@ -39,6 +39,11 @@ void LCD_write_string(char *str);
 void LCD_set_cursor(int row, int col);
 void LCD_print_int(int value);
 
+void DisplayTask(void *pvParameters);
+
+void clear_cell(int r, int c);
+void display(void);
+
 // LCD I2C address - common value is 0x27 for 1602A with I2C backpack
 #define LCD_ADDR 0x27
 

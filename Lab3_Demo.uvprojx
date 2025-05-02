@@ -420,6 +420,21 @@
               <FileType>1</FileType>
               <FilePath>.\potentiometer.c</FilePath>
             </File>
+            <File>
+              <FileName>ignition.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ignition.c</FilePath>
+            </File>
+            <File>
+              <FileName>gear.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\gear.c</FilePath>
+            </File>
+            <File>
+              <FileName>ultrasonic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ultrasonic.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

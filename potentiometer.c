@@ -45,20 +45,15 @@
 //    return result;
 //}
 
-//static void vSpeedTask(void *pvParameters) {
-//    (void)pvParameters;
-//    for (;;) {
-//        uint32_t adc_value = ADC0_Read();
-//        float voltage = (adc_value * 3.3f) / 4095.0f;
-//        latest_speed = voltage * 20.0f; // Simulate speed in km/h
-//        vTaskDelay(pdMS_TO_TICKS(500));
-//    }
-//} 
 
+
+//==================================================
 
 #include "headers.h"
 
 #define SPEED_ADC_CHANNEL 1 // PE2 (AIN1)
+
+float speed = 0;
 
 static void ADC0_Init(void);
 static uint32_t ADC0_Read(void);
@@ -95,3 +90,15 @@ static uint32_t ADC0_Read(void) {
     ADC0_ISC_R = 8;                      // Clear completion flag
     return result;
 }
+
+void vSpeedTask(void *pvParameters) {
+    (void)pvParameters;
+	TickType_t xLastWakeTime = xTaskGetTickCount();
+    const TickType_t xFrequency = pdMS_TO_TICKS(30); // Check every 20ms
+    for (;;) {
+        uint32_t adc_value = ADC0_Read();
+        float voltage = (adc_value * 3.3f) / 4095.0f;
+        speed = voltage * 20.0f; // Simulate speed in km/h
+        vTaskDelayUntil(&xLastWakeTime, xFrequency);
+    }
+} 

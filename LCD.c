@@ -1,5 +1,162 @@
 #include "headers.h"
 
+void display(void){
+	
+	if (!ignition && !ignition_changed){ // car is off
+		LCD_command(LCD_CLEAR);
+		return;
+	}
+	
+	
+	if (ignition_changed){
+		LCD_command(LCD_CLEAR);
+		if (ignition){
+
+		LCD_set_cursor(0, 0);
+    LCD_write_string("IGNITION ON ");
+			
+			for (int i = 0; i < 11; ++i){
+				LCD_set_cursor(1, i);
+				LCD_write_string("=");
+				delay_ms(500);
+			}
+			
+			
+	
+	} else {
+		
+		LCD_set_cursor(0, 0);
+    LCD_write_string("IGNITION OFF");
+		
+		for (int i = 0; i < 12; ++i){
+			LCD_set_cursor(1, i);
+			LCD_write_string("=");
+			delay_ms(500);
+		}
+		
+		LCD_command(LCD_CLEAR);
+		LCD_set_cursor(0,0);
+		LCD_write_string("Doors Unlocked");
+		delay_ms(4000);
+		
+	}
+	
+	ignition_changed = false;
+	LCD_command(LCD_CLEAR);
+}
+
+	// speed
+	LCD_set_cursor(0, 14);
+	LCD_print_int(speed);
+if (speed < 10){
+			clear_cell(0, 15);
+	}
+
+	return;
+}
+
+void DisplayTask(void *pvParameters){
+    /* Initialize periodic timing */
+    TickType_t xLastWakeTime;
+    const TickType_t xFrequency = pdMS_TO_TICKS(100); // 100ms refresh rate
+    
+    xLastWakeTime = xTaskGetTickCount();
+	
+	while(1){
+		
+		
+		
+		
+			if (!ignition && !ignition_changed){ // car is off
+		LCD_command(LCD_CLEAR);
+		continue;
+	}
+	
+	
+	if (ignition_changed){
+		LCD_command(LCD_CLEAR);
+		if (ignition){
+
+		LCD_set_cursor(0, 0);
+    LCD_write_string("IGNITION ON ");
+			
+			for (int i = 0; i < 11; ++i){
+				LCD_set_cursor(1, i);
+				LCD_write_string("=");
+				delay_ms(500);
+			}
+			
+			
+	
+	} else {
+		
+		LCD_set_cursor(0, 0);
+    LCD_write_string("IGNITION OFF");
+		
+		for (int i = 0; i < 12; ++i){
+			LCD_set_cursor(1, i);
+			LCD_write_string("=");
+			delay_ms(500);
+		}
+		
+		LCD_command(LCD_CLEAR);
+		LCD_set_cursor(0,0);
+		LCD_write_string("Doors Unlocked");
+		delay_ms(4000);
+		
+	}
+	
+	ignition_changed = false;
+	LCD_command(LCD_CLEAR);
+}
+
+	//gear
+	LCD_set_cursor(1, 14);
+if (drive){
+	LCD_write_string("D");
+} else if (!drive){
+	LCD_write_string("R");
+}
+
+	// speed
+	LCD_set_cursor(0, 14);
+	LCD_print_int(speed);
+if (speed < 10){
+			clear_cell(0, 15);
+	}
+		
+//uint32_t distance = Ultrasonic_GetDistance();
+//        
+//        LCD_set_cursor(0, 0);
+//        LCD_write_string("Distance: ");
+//        char buffer[16];
+//        // Convert integer to string
+//        sprintf(buffer, "%d", distance);
+//        LCD_write_string(buffer);
+//	
+		LCD_set_cursor(1, 0);
+	LCD_print_int(latest_distance);
+	
+	vTaskDelayUntil(&xLastWakeTime, xFrequency);
+	
+	
+	}
+	
+}
+
+
+
+void clear_cell(int c, int r){
+	
+	LCD_set_cursor(c,r);
+	LCD_write_string(" ");
+	
+}
+
+
+
+
+
 // I2C initialization and GPIO alternate function configuration
 void I2C1_Init(void)
 {

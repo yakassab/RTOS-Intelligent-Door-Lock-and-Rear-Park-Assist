@@ -1,14 +1,11 @@
-#include "ultrasonic.h"
-#include "tm4c123gh6pm.h"
-#include "FreeRTOS.h"
-#include "task.h"
+#include "headers.h"
 
-#define TRIG_PIN  (1 << 6)  // PB6
-#define ECHO_PIN  (1 << 7)  // PB7
+#define TRIG_PIN  (1 << 0)  // PB0
+#define ECHO_PIN  (1 << 3)  // PB3
 #define ULTRA_TASK_STACK 128
 #define ULTRA_TASK_PRIORITY 2
 
-static uint32_t latest_distance = 0;
+uint32_t latest_distance = 0;
 
 static void GPIO_Init(void);
 static void Timer1A_Init(void);
@@ -20,7 +17,7 @@ static void vUltrasonicTask(void *pvParameters);
 void Ultrasonic_Init(void) {
     GPIO_Init();
     Timer1A_Init();
-    xTaskCreate(vUltrasonicTask, "UltraTask", ULTRA_TASK_STACK, NULL, ULTRA_TASK_PRIORITY, NULL);
+	xTaskCreate(vUltrasonicTask, "UltraTask", ULTRA_TASK_STACK, NULL, ULTRA_TASK_PRIORITY, NULL);
 }
 
 uint32_t Ultrasonic_GetDistance(void) {

@@ -3,16 +3,21 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "tm4c123gh6pm.h"
 #include "types.h"
+#include "bitwise_operation.h"
 
 #include "LCD.h"
 #include "DIO.h"
 #include "potentiometer.h"
+#include "ignition.h"
+#include "gear.h"
+#include "ultrasonic.h"
 
-
-
+#include <FreeRTOS.h>
+#include "task.h"
 
 #define PORTF_ON 1<<5U
 

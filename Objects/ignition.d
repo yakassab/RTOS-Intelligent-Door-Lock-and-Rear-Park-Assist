@@ -1,4 +1,4 @@
-./objects/main.o: main.c headers.h \
+./objects/ignition.o: ignition.c headers.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h tm4c123gh6pm.h types.h \
