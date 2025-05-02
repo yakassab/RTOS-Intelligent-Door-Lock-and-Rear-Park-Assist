@@ -125,17 +125,13 @@ if (speed < 10){
 			clear_cell(0, 15);
 	}
 		
-//uint32_t distance = Ultrasonic_GetDistance();
-//        
-//        LCD_set_cursor(0, 0);
-//        LCD_write_string("Distance: ");
-//        char buffer[16];
-//        // Convert integer to string
-//        sprintf(buffer, "%d", distance);
-//        LCD_write_string(buffer);
-//	
+
 		LCD_set_cursor(1, 0);
 	LCD_print_int(latest_distance);
+	if (latest_distance < 100){
+			clear_cell(1, 2);
+			clear_cell(1, 3);
+	}
 	
 	vTaskDelayUntil(&xLastWakeTime, xFrequency);
 	

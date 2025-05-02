@@ -167,7 +167,7 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>latest_distance</ItemText>
+          <ItemText>latest_distance,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>3</count>

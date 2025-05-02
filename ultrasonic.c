@@ -47,6 +47,8 @@ static void Timer1A_Init(void) {
 }
 
 static uint32_t get_pulse_duration(void) {
+	
+	
     GPIO_PORTB_DATA_R &= ~TRIG_PIN;
     delayUs(2);
     GPIO_PORTB_DATA_R |= TRIG_PIN;
@@ -66,8 +68,8 @@ static void vUltrasonicTask(void *pvParameters) {
     for (;;) {
         uint32_t pulse_width = get_pulse_duration();
         uint32_t time_us = pulse_width / 16;
-        latest_distance = time_us / 58;
-        vTaskDelay(pdMS_TO_TICKS(300));
+        latest_distance = (100-((time_us / 58)-4628100));
+        vTaskDelay(pdMS_TO_TICKS(30));
     }
 }
 

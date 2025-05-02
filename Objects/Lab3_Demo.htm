@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Lab3_Demo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Lab3_Demo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Fri May  2 21:39:17 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Fri May  2 22:59:49 2025
 <BR><P>
 <H3>Maximum Stack Usage =        292 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1327,8 +1327,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7c]"></a>DisplayTask</STRONG> (Thumb, 476 bytes, Stack size 40 bytes, lcd.o(.text.DisplayTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = DisplayTask &rArr; xTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[7c]"></a>DisplayTask</STRONG> (Thumb, 508 bytes, Stack size 48 bytes, lcd.o(.text.DisplayTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = DisplayTask &rArr; xTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
@@ -2100,7 +2100,7 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ultrasonic_Init
 </UL>
 
-<P><STRONG><a name="[78]"></a>vUltrasonicTask</STRONG> (Thumb, 56 bytes, Stack size 24 bytes, ultrasonic.o(.text.vUltrasonicTask))
+<P><STRONG><a name="[78]"></a>vUltrasonicTask</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, ultrasonic.o(.text.vUltrasonicTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = vUltrasonicTask &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
