@@ -3,7 +3,7 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h tm4c123gh6pm.h types.h \
   bitwise_operation.h LCD.h DIO.h potentiometer.h ignition.h gear.h \
-  ultrasonic.h \
+  ultrasonic.h buzzer.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
   RTE\RTOS\FreeRTOSConfig.h RTE\_Target_1\RTE_Components.h \

@@ -15,6 +15,7 @@
 #include "ignition.h"
 #include "gear.h"
 #include "ultrasonic.h"
+#include "buzzer.h"
 
 #include <FreeRTOS.h>
 #include "task.h"

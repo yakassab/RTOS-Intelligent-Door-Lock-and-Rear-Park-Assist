@@ -9,6 +9,7 @@
 ".\objects\ignition.o"
 ".\objects\gear.o"
 ".\objects\ultrasonic.o"
+".\objects\buzzer.o"
 ".\objects\clib_os.o"
 ".\objects\cmsis_os2.o"
 ".\objects\os_systick.o"

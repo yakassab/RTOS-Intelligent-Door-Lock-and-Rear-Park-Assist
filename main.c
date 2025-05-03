@@ -38,6 +38,9 @@ int main(void)
 	
 	DIO_Configure(PORT_E, PIN_THREE, DIGITAL,INPUT, PDR);
 	DIO_Configure(PORT_F, PIN_ONE, DIGITAL,INPUT, PDR); // GEAR
+	
+		DIO_Configure(PORT_F, PIN_FOUR, DIGITAL,OUTPUT, PDR); // buzzer
+
 
 	
 	
@@ -54,6 +57,7 @@ int main(void)
 		xTaskCreate(IgnitionCheckTask,"Ignition Task", 240, NULL, 3, NULL); 
 		xTaskCreate(GearCheckTask,"Gear Task", 240, NULL, 2, NULL); 
 		xTaskCreate(vSpeedTask,"Speed Task", 240, NULL, 2, NULL); 
+		xTaskCreate(vBuzzerTask,"BuzzerTask",240,NULL,2,NULL);
 		xTaskCreate(DisplayTask,"Display Task", 240, NULL, 1, NULL); 
 		
 		vTaskStartScheduler();

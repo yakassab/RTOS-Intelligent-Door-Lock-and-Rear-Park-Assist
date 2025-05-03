@@ -128,10 +128,16 @@ if (speed < 10){
 
 		LCD_set_cursor(1, 0);
 	LCD_print_int(latest_distance);
-	if (latest_distance < 100){
-			clear_cell(1, 2);
-			clear_cell(1, 3);
+	if (latest_distance == 999){
+				LCD_set_cursor(1, 0);
+	      LCD_write_string("Too Far");
 	}
+		if (latest_distance < 10){
+							LCD_set_cursor(1, 1);
+				      LCD_write_string("       ");
+
+	}
+
 	
 	vTaskDelayUntil(&xLastWakeTime, xFrequency);
 	
