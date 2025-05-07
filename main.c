@@ -241,12 +241,12 @@ void IgnitionCheckTask(void *pvParameters) {
         
         if (ignition_state == IGNITION_ON) {
             // Auto-lock doors when ignition is on
-            lock_state = LOCKED;
-            DIO_WritePin(PORT_F, PIN_ONE, ONE); // Turn on LED indicator
+            //lock_state = LOCKED;
+            //DIO_WritePin(PORT_F, PIN_ONE, ONE); // Turn on LED indicator
         } else {
             // Unlock doors when ignition is off
             lock_state = UNLOCKED;
-            DIO_WritePin(PORT_F, PIN_ONE, ZERO); // Turn off LED indicator
+            //DIO_WritePin(PORT_F, PIN_ONE, ZERO); // Turn off LED indicator
         }
         
         // Release mutex after updating shared data
@@ -384,15 +384,12 @@ void vBuzzerTask(void *pvParameters) {
             // Control buzzer and LEDs based on distance
             if (local_distance < 10) {
                 // Very close - continuous beep
-                DIO_WritePin(PORT_F, PIN_ONE, ONE);
-                DIO_WritePin(PORT_F, PIN_TWO, ONE);
-                DIO_WritePin(PORT_F, PIN_THREE, ONE);
+								RGB_LED_Red();
                 DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Continuous beep
             } else if (local_distance < 30) {
                 // Medium distance - fast beep
-                DIO_WritePin(PORT_F, PIN_ONE, ONE);
-                DIO_WritePin(PORT_F, PIN_TWO, ONE);
-                DIO_WritePin(PORT_F, PIN_THREE, ZERO);
+								RGB_LED_Yellow();
+
                 DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Beep
                 vTaskDelay(100 / portTICK_PERIOD_MS);
                 DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
@@ -400,9 +397,8 @@ void vBuzzerTask(void *pvParameters) {
                 xSemaphoreGive(xBuzzerSemaphore); // Re-trigger self
             } else if (local_distance < 50) {
                 // Far distance - slow beep
-                DIO_WritePin(PORT_F, PIN_ONE, ONE);
-                DIO_WritePin(PORT_F, PIN_TWO, ZERO);
-                DIO_WritePin(PORT_F, PIN_THREE, ZERO);
+								RGB_LED_Green();
+
                 DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Beep
                 vTaskDelay(200 / portTICK_PERIOD_MS);
                 DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
@@ -410,9 +406,7 @@ void vBuzzerTask(void *pvParameters) {
                 xSemaphoreGive(xBuzzerSemaphore); // Re-trigger self
             } else {
                 // No obstacle detected
-                DIO_WritePin(PORT_F, PIN_ONE, ZERO);
-                DIO_WritePin(PORT_F, PIN_TWO, ZERO);
-                DIO_WritePin(PORT_F, PIN_THREE, ZERO);
+								RGB_LED_Green();
                 DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
             }
         }
@@ -459,12 +453,16 @@ void DisplayTask(void *pvParameters) {
             LCD_print_int(local_distance);
             LCD_write_string("cm");
         } else {
-            LCD_write_string("SPEED:");
-            LCD_print_int(local_speed);
-            if (local_door == DOOR_OPEN) {
-                LCD_write_string(" DOOR!");
-            }
+            
         }
+				
+        if (local_door == DOOR_OPEN && local_speed > 3) {
+						LCD_set_cursor(1, 8);
+            LCD_write_string(" DOOR!   ");
+        } else {
+					LCD_set_cursor(1, 8);
+				LCD_write_string("SPEED:");
+        LCD_print_int(local_speed);}
         
         // Update display periodically
         vTaskDelay(100 / portTICK_PERIOD_MS);
