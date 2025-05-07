@@ -50,8 +50,16 @@ void vBuzzerTask(void *pvParameters)
         else
         {
             // When in drive mode, just wait a bit before checking again
-            vTaskDelay(pdMS_TO_TICKS(100));
+						RGB_LED_Off();
+						if (door_opened && speed > 5){
+							DIO_WritePin(PORT_F, PIN_FOUR, 1);
+
+						} else {
+						DIO_WritePin(PORT_F, PIN_FOUR, 0);
+						}
+            
         }
+				vTaskDelay(pdMS_TO_TICKS(100));
     }
     
 }

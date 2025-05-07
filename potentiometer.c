@@ -55,7 +55,7 @@
 
 float speed = 0;
 
-
+bool speed_lock = false;
 
 static void ADC0_Init(void);
 static uint32_t ADC0_Read(void);
@@ -101,6 +101,10 @@ void vSpeedTask(void *pvParameters) {
         uint32_t adc_value = ADC0_Read();
         float voltage = (adc_value * 3.3f) / 4095.0f;
         speed = voltage * 20.0f; // Simulate speed in km/h
+				if (speed > 20 && !manual_override){speed_lock = true;}
+				
+				
         vTaskDelayUntil(&xLastWakeTime, xFrequency);
     }
 } 
+

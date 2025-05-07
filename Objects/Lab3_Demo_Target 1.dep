@@ -32,8 +32,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\rt_sys.h)(0x63889D68)
 I (consoleprint.h)(0x680F8653)
-F (.\main.c)(0x681B7781)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/main.o -MD)
-I (headers.h)(0x681A3A41)
+F (.\main.c)(0x681BABA8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/main.o -MD)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -52,12 +52,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)
@@ -84,8 +84,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x63889D68)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\cmsis_armclang_m.h)(0x664C2CE8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x664C2CE8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
-F (.\LCD.c)(0x681B9B07)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/lcd.o -MD)
-I (headers.h)(0x681A3A41)
+F (.\LCD.c)(0x681BB0B4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/lcd.o -MD)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -104,12 +104,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)
@@ -124,7 +124,7 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\inclu
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h)(0x6628B5E8)
 F (.\DIO.c)(0x680FE0CC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/dio.o -MD)
-I (headers.h)(0x681A3A41)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -143,12 +143,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)
@@ -162,8 +162,8 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\porta
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\mpu_wrappers.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h)(0x6628B5E8)
-F (.\potentiometer.c)(0x681B9EF6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/potentiometer.o -MD)
-I (headers.h)(0x681A3A41)
+F (.\potentiometer.c)(0x681BA9D2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/potentiometer.o -MD)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -182,12 +182,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)
@@ -201,8 +201,8 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\porta
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\mpu_wrappers.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h)(0x6628B5E8)
-F (.\ignition.c)(0x681B7782)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/ignition.o -MD)
-I (headers.h)(0x681A3A41)
+F (.\ignition.c)(0x681BA20B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/ignition.o -MD)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -221,12 +221,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)
@@ -240,8 +240,8 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\porta
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\mpu_wrappers.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h)(0x6628B5E8)
-F (.\gear.c)(0x681B9F56)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/gear.o -MD)
-I (headers.h)(0x681A3A41)
+F (.\gear.c)(0x681BAD12)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/gear.o -MD)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -260,12 +260,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)
@@ -279,8 +279,8 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\porta
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\mpu_wrappers.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h)(0x6628B5E8)
-F (.\ultrasonic.c)(0x681B9E43)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/ultrasonic.o -MD)
-I (headers.h)(0x681A3A41)
+F (.\ultrasonic.c)(0x681BA3CA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/ultrasonic.o -MD)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -299,12 +299,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)
@@ -318,8 +318,8 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\porta
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\mpu_wrappers.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h)(0x6628B5E8)
-F (.\buzzer.c)(0x6819164B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/buzzer.o -MD)
-I (headers.h)(0x681A3A41)
+F (.\buzzer.c)(0x681BB024)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/buzzer.o -MD)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -338,12 +338,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)
@@ -357,8 +357,8 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\porta
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\mpu_wrappers.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h)(0x6628B5E8)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h)(0x6628B5E8)
-F (.\door.c)(0x681B9EF6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/door.o -MD)
-I (headers.h)(0x681A3A41)
+F (.\door.c)(0x681BB666)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -w -I ../Lab3-I./RTE/RTOS-I./RTE/_Target_1-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/CMSIS/RTOS2/FreeRTOS/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS-FreeRTOS/11.1.0/Source/portable/GCC/ARM_CM4F-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/RTOS2/Include-IC:/Users/yakas/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/door.o -MD)
+I (headers.h)(0x681BAB87)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63889D68)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63889D68)
@@ -377,12 +377,12 @@ I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B6D5F6)
 I (LCD.h)(0x6813D0EF)
 I (DIO.h)(0x6768334E)
-I (potentiometer.h)(0x681B99C2)
+I (potentiometer.h)(0x681BA6FF)
 I (ignition.h)(0x6813D0EF)
 I (gear.h)(0x6813DE49)
-I (ultrasonic.h)(0x681A439E)
-I (buzzer.h)(0x681915B9)
-I (door.h)(0x681A4269)
+I (ultrasonic.h)(0x681BA20B)
+I (buzzer.h)(0x681BA20B)
+I (door.h)(0x681BA9D2)
 I (C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h)(0x6628B5E8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63889D68)
 I (RTE\RTOS\FreeRTOSConfig.h)(0x680F8656)

@@ -64,14 +64,13 @@ static uint32_t get_pulse_duration(void) {
 
 void vUltrasonicTask(void *pvParameters) {
     (void)pvParameters;
-		uint32_t num = 0;
+
     for (;;) {
         uint32_t pulse_width = get_pulse_duration();
         uint32_t time_us = pulse_width / 16;
         //latest_distance = ((100-((time_us / 58)-4628100))) * 14 / 50;
-			  num = ((100-((time_us / 58)-4628100)))* 31 / 100;
-				if ( num > 100)continue;
-				latest_distance = num;
+			  latest_distance = ((100-((time_us / 58)-4628100)))* 31 / 100;
+				 
 			
         vTaskDelay(pdMS_TO_TICKS(50));
     }

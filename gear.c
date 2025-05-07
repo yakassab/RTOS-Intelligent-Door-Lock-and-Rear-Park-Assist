@@ -14,12 +14,10 @@ void GearCheckTask(void *pvParameters)
     while(1)
     {
 			
-        /* Read the gear state */
-        drive = !GET_BIT(GPIO_PORTE_DATA_R, ONE);
+      /* Read the gear state */
+      drive = !GET_BIT(GPIO_PORTE_DATA_R, ONE);
 			
-			
-        
-        
+
         
         /* Wait until next check time */
         vTaskDelayUntil(&xLastWakeTime, xFrequency);

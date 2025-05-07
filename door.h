@@ -7,6 +7,9 @@
 extern bool door_opened;
 extern bool door_locked;
 
+extern bool manual_override;
+
+
 void DoorCheckTask(void *pvParameters);
 
 

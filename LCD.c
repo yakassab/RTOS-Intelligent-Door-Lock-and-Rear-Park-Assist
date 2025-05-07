@@ -111,6 +111,17 @@ void DisplayTask(void *pvParameters){
 	LCD_command(LCD_CLEAR);
 }
 
+if (door_opened && speed > 5){
+				LCD_set_cursor(0, 0);
+
+				LCD_write_string("    WARNING!");
+					LCD_set_cursor(1, 0);
+
+				LCD_write_string("CLOSE CAR DOOR");
+					LCD_command(LCD_CLEAR);
+				continue;
+}
+
 	//gear
 	LCD_set_cursor(1, 14);
 if (drive){
@@ -142,15 +153,20 @@ if (speed < 10){
 	}
 		
 
+	if (!drive){
 		// distance
 		LCD_set_cursor(1, 0);
 		LCD_write_string("     ");
 		LCD_set_cursor(1, 0);
+	if (latest_distance > 100){
+		continue;
+	}
 		LCD_print_int(latest_distance);
 		LCD_write_string("cm");
 
 
-
+} else {		LCD_set_cursor(1, 0);
+		LCD_write_string("     ");}
 	
 	vTaskDelayUntil(&xLastWakeTime, xFrequency);
 	

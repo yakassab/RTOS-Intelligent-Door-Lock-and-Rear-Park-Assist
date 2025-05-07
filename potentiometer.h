@@ -19,7 +19,7 @@
 
 
 extern float speed;
-
+extern bool speed_lock;
 
 // Initializes ADC for potentiometer reading
 void vSpeedTask(void *pvParameters);

@@ -22,6 +22,7 @@
 
 
 
+
 #include <FreeRTOS.h>
 #include "task.h"
 
@@ -93,5 +94,6 @@ typedef enum {
     PIN_SEVEN
 } PinName;
 
+extern TaskHandle_t UltrasonicHandle;
 
 #endif

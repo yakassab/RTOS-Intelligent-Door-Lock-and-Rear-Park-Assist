@@ -19,7 +19,7 @@
 */
 
 
-
+TaskHandle_t UltrasonicHandle;
 
 int main(void)
 {
@@ -69,10 +69,10 @@ int main(void)
 //    LCD_set_cursor(1, 0);
 //    LCD_write_string("===========");
     
-		
+		TaskHandle_t UltrasonicHandle;
 		
 		xTaskCreate(IgnitionCheckTask,"Ignition Task", 128, NULL, 4, NULL); 
-		xTaskCreate(vUltrasonicTask, "UltraTask", 128, NULL, 3, NULL);
+		xTaskCreate(vUltrasonicTask, "UltraTask", 128, NULL, 3, &UltrasonicHandle);
 		xTaskCreate(GearCheckTask,"Gear Task", 128, NULL, 2, NULL); 
 		xTaskCreate(vSpeedTask,"Speed Task", 128, NULL, 2, NULL); 
 		xTaskCreate(vBuzzerTask,"BuzzerTask",128,NULL,2,NULL);
