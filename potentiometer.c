@@ -93,18 +93,18 @@ static uint32_t ADC0_Read(void) {
     return result;
 }
 
-void vSpeedTask(void *pvParameters) {
-    (void)pvParameters;
-	TickType_t xLastWakeTime = xTaskGetTickCount();
-    const TickType_t xFrequency = pdMS_TO_TICKS(30); // Check every 20ms
-    for (;;) {
-        uint32_t adc_value = ADC0_Read();
-        float voltage = (adc_value * 3.3f) / 4095.0f;
-        speed = voltage * 20.0f; // Simulate speed in km/h
-				if (speed > 20 && !manual_override){speed_lock = true;}
-				
-				
-        vTaskDelayUntil(&xLastWakeTime, xFrequency);
-    }
-} 
+//void vSpeedTask(void *pvParameters) {
+//    (void)pvParameters;
+//	TickType_t xLastWakeTime = xTaskGetTickCount();
+//    const TickType_t xFrequency = pdMS_TO_TICKS(30); // Check every 20ms
+//    for (;;) {
+//        uint32_t adc_value = ADC0_Read();
+//        float voltage = (adc_value * 3.3f) / 4095.0f;
+//        speed = voltage * 20.0f; // Simulate speed in km/h
+//				if (speed > 20 && !manual_override){speed_lock = true;}
+//				
+//				
+//        vTaskDelayUntil(&xLastWakeTime, xFrequency);
+//    }
+//} 
 

@@ -52,7 +52,6 @@ bool ignition_state = IGNITION_OFF;
 bool gear_state = NORMAL_GEAR;
 bool door_state = DOOR_CLOSED;
 bool lock_state = UNLOCKED;
-int speed = 0;
 float distance = 0;
 
 /* Handlers, Semaphores */
@@ -97,8 +96,8 @@ void InterruptInit(void) {
     GPIOIntTypeSet(GPIO_PORTD_BASE, GPIO_PIN_2, GPIO_BOTH_EDGES); // DOOR
     
     // Set interrupt priorities
-    IntPrioritySet(INT_GPIOE, configMAX_SYSCALL_INTERRUPT_PRIORITY);
-    IntPrioritySet(INT_GPIOD, configMAX_SYSCALL_INTERRUPT_PRIORITY+1);
+    IntPrioritySet(PORT_E, configMAX_SYSCALL_INTERRUPT_PRIORITY);
+    IntPrioritySet(PORT_D, configMAX_SYSCALL_INTERRUPT_PRIORITY+1);
     
     // Enable interrupts for PORT E pins
     GPIOIntEnable(GPIO_PORTE_BASE, GPIO_PIN_3); // IGNITION
@@ -128,6 +127,8 @@ int main(void)
     Ultrasonic_Init();
     delay_ms(100);
 
+	
+		
     // Configure input pins
     DIO_Configure(PORT_E, PIN_THREE, DIGITAL, INPUT, PDR); // IGNITION
     DIO_Configure(PORT_E, PIN_ONE, DIGITAL, INPUT, PDR);   // GEAR
@@ -236,16 +237,16 @@ void IgnitionCheckTask(void *pvParameters) {
         xSemaphoreTake(xDataMutex, portMAX_DELAY);
         
         // Read ignition state
-        ignition_state = DIO_Read(PORT_E, PIN_THREE);
+        ignition_state = GET_BIT(GPIO_PORTE_DATA_R, THREE);
         
         if (ignition_state == IGNITION_ON) {
             // Auto-lock doors when ignition is on
             lock_state = LOCKED;
-            DIO_Write(PORT_F, PIN_ONE, HIGH); // Turn on LED indicator
+            DIO_WritePin(PORT_F, PIN_ONE, ONE); // Turn on LED indicator
         } else {
             // Unlock doors when ignition is off
             lock_state = UNLOCKED;
-            DIO_Write(PORT_F, PIN_ONE, LOW); // Turn off LED indicator
+            DIO_WritePin(PORT_F, PIN_ONE, ZERO); // Turn off LED indicator
         }
         
         // Release mutex after updating shared data
@@ -268,16 +269,16 @@ void GearCheckTask(void *pvParameters) {
         xSemaphoreTake(xDataMutex, portMAX_DELAY);
         
         // Read gear state
-        gear_state = DIO_Read(PORT_E, PIN_ONE);
+        gear_state = GET_BIT(GPIO_PORTE_DATA_R, ONE);
         
         if (gear_state == REVERSE_GEAR) {
             // Activate the park assist system
             xSemaphoreGive(xUltrasonicSemaphore);
         } else {
             // Turn off all indicators when not in reverse
-            DIO_Write(PORT_F, PIN_TWO, LOW);
-            DIO_Write(PORT_F, PIN_THREE, LOW);
-            DIO_Write(PORT_F, PIN_FOUR, LOW); // Turn off buzzer
+            DIO_WritePin(PORT_F, PIN_TWO, ZERO);
+            DIO_WritePin(PORT_F, PIN_THREE, ZERO);
+            DIO_WritePin(PORT_F, PIN_FOUR, ZERO); // Turn off buzzer
         }
         
         // Release mutex after updating shared data
@@ -300,14 +301,14 @@ void DoorCheckTask(void *pvParameters) {
         xSemaphoreTake(xDataMutex, portMAX_DELAY);
         
         // Read door state
-        door_state = DIO_Read(PORT_D, PIN_TWO);
+        door_state = GET_BIT(GPIO_PORTD_DATA_R, TWO);
         
         // Security feature: if door is opened while ignition is on and car is moving
         if (door_state == DOOR_OPEN && ignition_state == IGNITION_ON && speed > 0) {
             // Sound alarm
-            DIO_Write(PORT_F, PIN_FOUR, HIGH); // Activate buzzer
+            DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Activate buzzer
             vTaskDelay(500 / portTICK_PERIOD_MS);
-            DIO_Write(PORT_F, PIN_FOUR, LOW); // Deactivate buzzer
+            DIO_WritePin(PORT_F, PIN_FOUR, ZERO); // Deactivate buzzer
         }
         
         // Release mutex after accessing shared data
@@ -351,13 +352,13 @@ void vSpeedTask(void *pvParameters) {
         xSemaphoreTake(xDataMutex, portMAX_DELAY);
         
         // Read speed from potentiometer
-        speed = Potentiometer_ReadSpeed();  // Using correct function name
+        speed = Potentiometer_GetSpeed();  // Using correct function name
         
         // Release mutex after updating shared data
         xSemaphoreGive(xDataMutex);
         
         // Check speed periodically
-        vTaskDelay(200 / portTICK_PERIOD_MS);
+        vTaskDelay(30 / portTICK_PERIOD_MS);
     }
 }
 
@@ -383,36 +384,36 @@ void vBuzzerTask(void *pvParameters) {
             // Control buzzer and LEDs based on distance
             if (local_distance < 10) {
                 // Very close - continuous beep
-                DIO_Write(PORT_F, PIN_ONE, HIGH);
-                DIO_Write(PORT_F, PIN_TWO, HIGH);
-                DIO_Write(PORT_F, PIN_THREE, HIGH);
-                DIO_Write(PORT_F, PIN_FOUR, HIGH); // Continuous beep
+                DIO_WritePin(PORT_F, PIN_ONE, ONE);
+                DIO_WritePin(PORT_F, PIN_TWO, ONE);
+                DIO_WritePin(PORT_F, PIN_THREE, ONE);
+                DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Continuous beep
             } else if (local_distance < 30) {
                 // Medium distance - fast beep
-                DIO_Write(PORT_F, PIN_ONE, HIGH);
-                DIO_Write(PORT_F, PIN_TWO, HIGH);
-                DIO_Write(PORT_F, PIN_THREE, LOW);
-                DIO_Write(PORT_F, PIN_FOUR, HIGH); // Beep
+                DIO_WritePin(PORT_F, PIN_ONE, ONE);
+                DIO_WritePin(PORT_F, PIN_TWO, ONE);
+                DIO_WritePin(PORT_F, PIN_THREE, ZERO);
+                DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Beep
                 vTaskDelay(100 / portTICK_PERIOD_MS);
-                DIO_Write(PORT_F, PIN_FOUR, LOW);
+                DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
                 vTaskDelay(100 / portTICK_PERIOD_MS);
                 xSemaphoreGive(xBuzzerSemaphore); // Re-trigger self
             } else if (local_distance < 50) {
                 // Far distance - slow beep
-                DIO_Write(PORT_F, PIN_ONE, HIGH);
-                DIO_Write(PORT_F, PIN_TWO, LOW);
-                DIO_Write(PORT_F, PIN_THREE, LOW);
-                DIO_Write(PORT_F, PIN_FOUR, HIGH); // Beep
+                DIO_WritePin(PORT_F, PIN_ONE, ONE);
+                DIO_WritePin(PORT_F, PIN_TWO, ZERO);
+                DIO_WritePin(PORT_F, PIN_THREE, ZERO);
+                DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Beep
                 vTaskDelay(200 / portTICK_PERIOD_MS);
-                DIO_Write(PORT_F, PIN_FOUR, LOW);
+                DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
                 vTaskDelay(500 / portTICK_PERIOD_MS);
                 xSemaphoreGive(xBuzzerSemaphore); // Re-trigger self
             } else {
                 // No obstacle detected
-                DIO_Write(PORT_F, PIN_ONE, LOW);
-                DIO_Write(PORT_F, PIN_TWO, LOW);
-                DIO_Write(PORT_F, PIN_THREE, LOW);
-                DIO_Write(PORT_F, PIN_FOUR, LOW);
+                DIO_WritePin(PORT_F, PIN_ONE, ZERO);
+                DIO_WritePin(PORT_F, PIN_TWO, ZERO);
+                DIO_WritePin(PORT_F, PIN_THREE, ZERO);
+                DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
             }
         }
     }
@@ -455,7 +456,7 @@ void DisplayTask(void *pvParameters) {
         LCD_set_cursor(1, 0);
         if (local_gear == REVERSE_GEAR) {
             LCD_write_string("DIST:");
-            LCD_print_int((int)local_distance);
+            LCD_print_int(local_distance);
             LCD_write_string("cm");
         } else {
             LCD_write_string("SPEED:");
@@ -466,12 +467,12 @@ void DisplayTask(void *pvParameters) {
         }
         
         // Update display periodically
-        vTaskDelay(300 / portTICK_PERIOD_MS);
+        vTaskDelay(100 / portTICK_PERIOD_MS);
     }
 }
 
 /* Idle Task for sleeping the processor */
 void vApplicationIdleHook(void) {
     /* Put the microcontroller in a low power mode */
-    SysCtlSleep();
+    //SysCtlSleep();
 }

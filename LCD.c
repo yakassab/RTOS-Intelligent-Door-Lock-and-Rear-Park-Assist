@@ -55,125 +55,125 @@ if (speed < 10){
 	return;
 }
 
-void DisplayTask(void *pvParameters){
-    /* Initialize periodic timing */
-    TickType_t xLastWakeTime;
-    const TickType_t xFrequency = pdMS_TO_TICKS(100); // 100ms refresh rate
-    
-    xLastWakeTime = xTaskGetTickCount();
-	
-	while(1){
-		
-		
-		
-		
-			if (!ignition && !ignition_changed){ // car is off
-		LCD_command(LCD_CLEAR);
-		continue;
-	}
-	
-	
-	if (ignition_changed){
-		LCD_command(LCD_CLEAR);
-		if (ignition){
+//void DisplayTask(void *pvParameters){
+//    /* Initialize periodic timing */
+//    TickType_t xLastWakeTime;
+//    const TickType_t xFrequency = pdMS_TO_TICKS(100); // 100ms refresh rate
+//    
+//    xLastWakeTime = xTaskGetTickCount();
+//	
+//	while(1){
+//		
+//		
+//		
+//		
+//			if (!ignition && !ignition_changed){ // car is off
+//		LCD_command(LCD_CLEAR);
+//		continue;
+//	}
+//	
+//	
+//	if (ignition_changed){
+//		LCD_command(LCD_CLEAR);
+//		if (ignition){
 
-		LCD_set_cursor(0, 0);
-    LCD_write_string("IGNITION ON ");
-			
-			for (int i = 0; i < 11; ++i){
-				LCD_set_cursor(1, i);
-				LCD_write_string("=");
-				delay_ms(300);
-			}
-			
-			
-	
-	} else {
-		
-		LCD_set_cursor(0, 0);
-    LCD_write_string("IGNITION OFF");
-		
-		for (int i = 0; i < 12; ++i){
-			LCD_set_cursor(1, i);
-			LCD_write_string("=");
-			delay_ms(300);
-		}
-		
-		LCD_command(LCD_CLEAR);
-		LCD_set_cursor(0,0);
-		LCD_write_string("Doors Unlocked");
-		
-		delay_ms(3000);
-		
-	}
-	
-	ignition_changed = false;
-	LCD_command(LCD_CLEAR);
-}
+//		LCD_set_cursor(0, 0);
+//    LCD_write_string("IGNITION ON ");
+//			
+//			for (int i = 0; i < 11; ++i){
+//				LCD_set_cursor(1, i);
+//				LCD_write_string("=");
+//				delay_ms(300);
+//			}
+//			
+//			
+//	
+//	} else {
+//		
+//		LCD_set_cursor(0, 0);
+//    LCD_write_string("IGNITION OFF");
+//		
+//		for (int i = 0; i < 12; ++i){
+//			LCD_set_cursor(1, i);
+//			LCD_write_string("=");
+//			delay_ms(300);
+//		}
+//		
+//		LCD_command(LCD_CLEAR);
+//		LCD_set_cursor(0,0);
+//		LCD_write_string("Doors Unlocked");
+//		
+//		delay_ms(3000);
+//		
+//	}
+//	
+//	ignition_changed = false;
+//	LCD_command(LCD_CLEAR);
+//}
 
-if (door_opened && speed > 5){
-				LCD_set_cursor(0, 0);
+//if (door_opened && speed > 5){
+//				LCD_set_cursor(0, 0);
 
-				LCD_write_string("    WARNING!");
-					LCD_set_cursor(1, 0);
+//				LCD_write_string("    WARNING!");
+//					LCD_set_cursor(1, 0);
 
-				LCD_write_string("CLOSE CAR DOOR");
-					LCD_command(LCD_CLEAR);
-				continue;
-}
+//				LCD_write_string("CLOSE CAR DOOR");
+//					LCD_command(LCD_CLEAR);
+//				continue;
+//}
 
-	//gear
-	LCD_set_cursor(1, 14);
-if (drive){
-	LCD_write_string("D");
-} else if (!drive){
-	LCD_write_string("R");
-}
+//	//gear
+//	LCD_set_cursor(1, 14);
+//if (drive){
+//	LCD_write_string("D");
+//} else if (!drive){
+//	LCD_write_string("R");
+//}
 
-	//DOOR
-	LCD_set_cursor(0, 1);
-if (door_opened){
-	LCD_write_string("O");
-} else if (!door_opened){
-	LCD_write_string("C");
-}
-	//Lock
-	LCD_set_cursor(0, 0);
-if (door_locked){
-	LCD_write_string("L");
-} else if (!door_locked){
-	LCD_write_string("U");
-}
+//	//DOOR
+//	LCD_set_cursor(0, 1);
+//if (door_opened){
+//	LCD_write_string("O");
+//} else if (!door_opened){
+//	LCD_write_string("C");
+//}
+//	//Lock
+//	LCD_set_cursor(0, 0);
+//if (door_locked){
+//	LCD_write_string("L");
+//} else if (!door_locked){
+//	LCD_write_string("U");
+//}
 
-	// speed
-	LCD_set_cursor(0, 14);
-	LCD_print_int(speed);
-if (speed < 10){
-			clear_cell(0, 15);
-	}
-		
+//	// speed
+//	LCD_set_cursor(0, 14);
+//	LCD_print_int(speed);
+//if (speed < 10){
+//			clear_cell(0, 15);
+//	}
+//		
 
-	if (!drive){
-		// distance
-		LCD_set_cursor(1, 0);
-		LCD_write_string("     ");
-		LCD_set_cursor(1, 0);
-	if (latest_distance > 100){
-		continue;
-	}
-		LCD_print_int(latest_distance);
-		LCD_write_string("cm");
+//	if (!drive){
+//		// distance
+//		LCD_set_cursor(1, 0);
+//		LCD_write_string("     ");
+//		LCD_set_cursor(1, 0);
+//	if (latest_distance > 100){
+//		continue;
+//	}
+//		LCD_print_int(latest_distance);
+//		LCD_write_string("cm");
 
 
-} else {		LCD_set_cursor(1, 0);
-		LCD_write_string("     ");}
-	
-	vTaskDelayUntil(&xLastWakeTime, xFrequency);
-	
-	
-	}
-	
-}
+//} else {		LCD_set_cursor(1, 0);
+//		LCD_write_string("     ");}
+//	
+//	vTaskDelayUntil(&xLastWakeTime, xFrequency);
+//	
+//	
+//	}
+//	
+//}
 
 
 

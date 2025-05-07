@@ -15,54 +15,54 @@ void check_buzz(void){
 
 }
 
-void vBuzzerTask(void *pvParameters)
-{
-    // Task initialization
-    TickType_t xLastWakeTime;
-    xLastWakeTime = xTaskGetTickCount();
-	
-    uint32_t beepDelay;
-	
-    for (;;)
-    {
-        // Check if in reverse mode
-        if (!drive)
-        {
+//void vBuzzerTask(void *pvParameters)
+//{
+//    // Task initialization
+//    TickType_t xLastWakeTime;
+//    xLastWakeTime = xTaskGetTickCount();
+//	
+//    uint32_t beepDelay;
+//	
+//    for (;;)
+//    {
+//        // Check if in reverse mode
+//        if (!drive)
+//        {
 
-            
-            
-            // Set minimum and maximum delays to prevent very fast or very slow beeping
-            if (latest_distance < 10) {       
-							RGB_LED_Red();
-							DIO_WritePin(PORT_F, PIN_FOUR, 1);
-							vTaskDelay(pdMS_TO_TICKS(100));
-						} 
-						else if (latest_distance < 30) {beepDelay = 60;RGB_LED_Yellow();}     
-            else if (latest_distance < 50) {beepDelay = 120;RGB_LED_Green();}     
-						else {beepDelay = 200;}     
-						
-            DIO_WritePin(PORT_F, PIN_FOUR, 1);
-            vTaskDelay(pdMS_TO_TICKS(beepDelay));
-            
-            DIO_WritePin(PORT_F, PIN_FOUR, 0);
-            vTaskDelay(pdMS_TO_TICKS(beepDelay));
-        }
-        else
-        {
-            // When in drive mode, just wait a bit before checking again
-						RGB_LED_Off();
-						if (door_opened && speed > 5){
-							DIO_WritePin(PORT_F, PIN_FOUR, 1);
+//            
+//            
+//            // Set minimum and maximum delays to prevent very fast or very slow beeping
+//            if (latest_distance < 10) {       
+//							RGB_LED_Red();
+//							DIO_WritePin(PORT_F, PIN_FOUR, 1);
+//							vTaskDelay(pdMS_TO_TICKS(100));
+//						} 
+//						else if (latest_distance < 30) {beepDelay = 60;RGB_LED_Yellow();}     
+//            else if (latest_distance < 50) {beepDelay = 120;RGB_LED_Green();}     
+//						else {beepDelay = 200;}     
+//						
+//            DIO_WritePin(PORT_F, PIN_FOUR, 1);
+//            vTaskDelay(pdMS_TO_TICKS(beepDelay));
+//            
+//            DIO_WritePin(PORT_F, PIN_FOUR, 0);
+//            vTaskDelay(pdMS_TO_TICKS(beepDelay));
+//        }
+//        else
+//        {
+//            // When in drive mode, just wait a bit before checking again
+//						RGB_LED_Off();
+//						if (door_opened && speed > 5){
+//							DIO_WritePin(PORT_F, PIN_FOUR, 1);
 
-						} else {
-						DIO_WritePin(PORT_F, PIN_FOUR, 0);
-						}
-            
-        }
-				vTaskDelay(pdMS_TO_TICKS(100));
-    }
-    
-}
+//						} else {
+//						DIO_WritePin(PORT_F, PIN_FOUR, 0);
+//						}
+//            
+//        }
+//				vTaskDelay(pdMS_TO_TICKS(100));
+//    }
+//    
+//}
 
 
 // Turn all LEDs off

@@ -20,7 +20,11 @@ void Ultrasonic_Init(void) {
 }
 
 uint32_t Ultrasonic_GetDistance(void) {
-    return latest_distance;
+        uint32_t pulse_width = get_pulse_duration();
+        uint32_t time_us = pulse_width / 16;
+        //latest_distance = ((100-((time_us / 58)-4628100))) * 14 / 50;
+			  latest_distance = ((100-((time_us / 58)-4628100)))* 31 / 100;
+	return latest_distance;
 }
 
 static void GPIO_Init(void) {
@@ -62,19 +66,19 @@ static uint32_t get_pulse_duration(void) {
     return duration;
 }
 
-void vUltrasonicTask(void *pvParameters) {
-    (void)pvParameters;
+//void vUltrasonicTask(void *pvParameters) {
+//    (void)pvParameters;
 
-    for (;;) {
-        uint32_t pulse_width = get_pulse_duration();
-        uint32_t time_us = pulse_width / 16;
-        //latest_distance = ((100-((time_us / 58)-4628100))) * 14 / 50;
-			  latest_distance = ((100-((time_us / 58)-4628100)))* 31 / 100;
-				 
-			
-        vTaskDelay(pdMS_TO_TICKS(50));
-    }
-}
+//    for (;;) {
+//        uint32_t pulse_width = get_pulse_duration();
+//        uint32_t time_us = pulse_width / 16;
+//        //latest_distance = ((100-((time_us / 58)-4628100))) * 14 / 50;
+//			  latest_distance = ((100-((time_us / 58)-4628100)))* 31 / 100;
+//				 
+//			
+//        vTaskDelay(pdMS_TO_TICKS(50));
+//    }
+//}
 
 static void delayUs(int us) {
     int i;

@@ -26,4 +26,8 @@
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\portable\GCC\ARM_CM4F\portmacro.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\mpu_wrappers.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h \
-  C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h
+  C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h \
+  C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\queue.h \
+  C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\semphr.h \
+  inc\hw_memmap.h inc\hw_types.h inc\hw_ints.h driverlib\gpio.h \
+  driverlib\interrupt.h driverlib\sysctl.h
