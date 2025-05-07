@@ -8,6 +8,7 @@
 #include "tm4c123gh6pm.h"
 #include "types.h"
 #include "bitwise_operation.h"
+#include "TM4C123.h"
 
 #include "LCD.h"
 #include "DIO.h"
@@ -16,6 +17,10 @@
 #include "gear.h"
 #include "ultrasonic.h"
 #include "buzzer.h"
+#include "door.h"
+
+
+
 
 #include <FreeRTOS.h>
 #include "task.h"
@@ -54,7 +59,9 @@
 
 #define ZERO_FLOAT 0.0
 
-
+#define LED_RED   (1<<1)  // PF1
+#define LED_BLUE  (1<<2)  // PF2
+#define LED_GREEN (1<<3)  // PF3
 
 
 #define INPUT 0U

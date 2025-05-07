@@ -6,9 +6,16 @@
 		PA7 to SDA
 		
 		PF1 to Gear
+		PF4 to Buzzer
+		
+		PB0 to Trig
+		PB3 to Echo
 		
 		PE2 to Potentiometer
 		PE3 to Ignition
+		
+		PD2 to Door
+		PE5 to Lock
 */
 
 
@@ -17,6 +24,8 @@
 int main(void)
 {
 		DIO_Init(PORT_F);
+		DIO_Init(PORT_D);
+
     I2C1_Init(); // (PA6 to SCL and PA7 to SDA)
     //delay_ms(100);
     LCD_init();
@@ -36,9 +45,17 @@ int main(void)
 	    delay_ms(100);
 
 	
-	DIO_Configure(PORT_E, PIN_THREE, DIGITAL,INPUT, PDR);
-	DIO_Configure(PORT_F, PIN_ONE, DIGITAL,INPUT, PDR); // GEAR
+	DIO_Configure(PORT_E, PIN_THREE, DIGITAL,INPUT, PDR); // IGNITION
+	DIO_Configure(PORT_E, PIN_ONE, DIGITAL,INPUT, PDR); // GEAR
 	
+		DIO_Configure(PORT_D, PIN_TWO, DIGITAL,INPUT, PDR); // DOOR
+	DIO_Configure(PORT_E, PIN_FIVE, DIGITAL,INPUT, PDR); // LOCK
+
+	
+			DIO_Configure(PORT_F, PIN_ONE, DIGITAL,OUTPUT, PDR); 	//LED
+		DIO_Configure(PORT_F, PIN_TWO, DIGITAL,OUTPUT, PDR); 		//LED
+		DIO_Configure(PORT_F, PIN_THREE, DIGITAL,OUTPUT, PDR); 	//LED
+
 		DIO_Configure(PORT_F, PIN_FOUR, DIGITAL,OUTPUT, PDR); // buzzer
 
 
@@ -54,11 +71,13 @@ int main(void)
     
 		
 		
-		xTaskCreate(IgnitionCheckTask,"Ignition Task", 240, NULL, 3, NULL); 
-		xTaskCreate(GearCheckTask,"Gear Task", 240, NULL, 2, NULL); 
-		xTaskCreate(vSpeedTask,"Speed Task", 240, NULL, 2, NULL); 
-		xTaskCreate(vBuzzerTask,"BuzzerTask",240,NULL,2,NULL);
-		xTaskCreate(DisplayTask,"Display Task", 240, NULL, 1, NULL); 
+		xTaskCreate(IgnitionCheckTask,"Ignition Task", 128, NULL, 4, NULL); 
+		xTaskCreate(vUltrasonicTask, "UltraTask", 128, NULL, 3, NULL);
+		xTaskCreate(GearCheckTask,"Gear Task", 128, NULL, 2, NULL); 
+		xTaskCreate(vSpeedTask,"Speed Task", 128, NULL, 2, NULL); 
+		xTaskCreate(vBuzzerTask,"BuzzerTask",128,NULL,2,NULL);
+		xTaskCreate(DoorCheckTask,"DoorTask",128,NULL,2,NULL);
+		xTaskCreate(DisplayTask,"Display Task", 128, NULL, 1, NULL); 
 		
 		vTaskStartScheduler();
 		

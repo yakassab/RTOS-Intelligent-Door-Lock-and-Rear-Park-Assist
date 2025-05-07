@@ -12,4 +12,6 @@ void Ultrasonic_Init(void);
 // Gets the latest measured distance (in cm)
 uint32_t Ultrasonic_GetDistance(void);
 
+void vUltrasonicTask(void *pvParameters);
+
 #endif 

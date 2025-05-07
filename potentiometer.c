@@ -55,6 +55,8 @@
 
 float speed = 0;
 
+
+
 static void ADC0_Init(void);
 static uint32_t ADC0_Read(void);
 

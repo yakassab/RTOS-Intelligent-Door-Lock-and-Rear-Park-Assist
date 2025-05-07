@@ -440,6 +440,11 @@
               <FileType>1</FileType>
               <FilePath>.\buzzer.c</FilePath>
             </File>
+            <File>
+              <FileName>door.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\door.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -24,6 +24,7 @@ void IgnitionCheckTask(void *pvParameters)
         {
             ignition = new_state;
             ignition_changed = true;
+					if (!ignition)door_locked = false;
         }
         
         /* Wait until next check time */

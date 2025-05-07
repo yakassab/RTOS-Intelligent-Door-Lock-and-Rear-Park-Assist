@@ -83,7 +83,7 @@ void DisplayTask(void *pvParameters){
 			for (int i = 0; i < 11; ++i){
 				LCD_set_cursor(1, i);
 				LCD_write_string("=");
-				delay_ms(500);
+				delay_ms(300);
 			}
 			
 			
@@ -96,13 +96,14 @@ void DisplayTask(void *pvParameters){
 		for (int i = 0; i < 12; ++i){
 			LCD_set_cursor(1, i);
 			LCD_write_string("=");
-			delay_ms(500);
+			delay_ms(300);
 		}
 		
 		LCD_command(LCD_CLEAR);
 		LCD_set_cursor(0,0);
 		LCD_write_string("Doors Unlocked");
-		delay_ms(4000);
+		
+		delay_ms(3000);
 		
 	}
 	
@@ -118,6 +119,21 @@ if (drive){
 	LCD_write_string("R");
 }
 
+	//DOOR
+	LCD_set_cursor(0, 1);
+if (door_opened){
+	LCD_write_string("O");
+} else if (!door_opened){
+	LCD_write_string("C");
+}
+	//Lock
+	LCD_set_cursor(0, 0);
+if (door_locked){
+	LCD_write_string("L");
+} else if (!door_locked){
+	LCD_write_string("U");
+}
+
 	// speed
 	LCD_set_cursor(0, 14);
 	LCD_print_int(speed);
@@ -126,17 +142,14 @@ if (speed < 10){
 	}
 		
 
+		// distance
 		LCD_set_cursor(1, 0);
-	LCD_print_int(latest_distance);
-	if (latest_distance == 999){
-				LCD_set_cursor(1, 0);
-	      LCD_write_string("Too Far");
-	}
-		if (latest_distance < 10){
-							LCD_set_cursor(1, 1);
-				      LCD_write_string("       ");
+		LCD_write_string("     ");
+		LCD_set_cursor(1, 0);
+		LCD_print_int(latest_distance);
+		LCD_write_string("cm");
 
-	}
+
 
 	
 	vTaskDelayUntil(&xLastWakeTime, xFrequency);

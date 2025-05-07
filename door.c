@@ -1,8 +1,11 @@
 #include "headers.h"
 
-bool drive = true; // true is drive, false is reverse.
+bool door_opened = false;
+bool door_locked = false;
 
-void GearCheckTask(void *pvParameters)
+bool first = true;
+
+void DoorCheckTask(void *pvParameters)
 {
     /* Initialize periodic timing */
     TickType_t xLastWakeTime;
@@ -14,10 +17,9 @@ void GearCheckTask(void *pvParameters)
     while(1)
     {
 			
-        /* Read the gear state */
-        drive = !GET_BIT(GPIO_PORTE_DATA_R, ONE);
-			
-			
+				door_opened = GET_BIT(GPIO_PORTD_DATA_R, TWO);
+				door_locked = GET_BIT(GPIO_PORTE_DATA_R, FIVE);
+
         
         
         

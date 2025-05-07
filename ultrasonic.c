@@ -2,8 +2,7 @@
 
 #define TRIG_PIN  (1 << 0)  // PB0
 #define ECHO_PIN  (1 << 3)  // PB3
-#define ULTRA_TASK_STACK 128
-#define ULTRA_TASK_PRIORITY 2
+
 
 uint32_t latest_distance = 0;
 
@@ -12,12 +11,12 @@ static void Timer1A_Init(void);
 static uint32_t get_pulse_duration(void);
 static void delayUs(int us);
 static void delayMs(int ms);
-static void vUltrasonicTask(void *pvParameters);
+
 
 void Ultrasonic_Init(void) {
     GPIO_Init();
     Timer1A_Init();
-	xTaskCreate(vUltrasonicTask, "UltraTask", ULTRA_TASK_STACK, NULL, ULTRA_TASK_PRIORITY, NULL);
+
 }
 
 uint32_t Ultrasonic_GetDistance(void) {
@@ -63,18 +62,18 @@ static uint32_t get_pulse_duration(void) {
     return duration;
 }
 
-static void vUltrasonicTask(void *pvParameters) {
+void vUltrasonicTask(void *pvParameters) {
     (void)pvParameters;
+		uint32_t num = 0;
     for (;;) {
         uint32_t pulse_width = get_pulse_duration();
         uint32_t time_us = pulse_width / 16;
         //latest_distance = ((100-((time_us / 58)-4628100))) * 14 / 50;
-			  latest_distance = ((100-((time_us / 58)-4628100)))* 31 / 100;
-			if (latest_distance > 100){
-				latest_distance = 999; // value for too far
-			}
-
-        vTaskDelay(pdMS_TO_TICKS(30));
+			  num = ((100-((time_us / 58)-4628100)))* 31 / 100;
+				if ( num > 100)continue;
+				latest_distance = num;
+			
+        vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
 
