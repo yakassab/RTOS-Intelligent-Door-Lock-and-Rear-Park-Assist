@@ -5,6 +5,9 @@
 
 extern bool buzz;
 
+extern SemaphoreHandle_t xBuzzerSemaphore;
+
+
 void check_buzz(void);
 
 void vBuzzerTask(void *pvParameters);

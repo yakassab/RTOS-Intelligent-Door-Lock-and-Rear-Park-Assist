@@ -83,6 +83,16 @@
 
 #define MAX_TEMPERATURE 20U
 
+/* Global Variables */
+#define LOCKED            1
+#define UNLOCKED          0
+#define REVERSE_GEAR      1
+#define NORMAL_GEAR       0
+#define IGNITION_ON       1
+#define IGNITION_OFF      0
+#define DOOR_OPEN         1
+#define DOOR_CLOSED       0
+
 typedef enum {
     PIN_ZERO = 0U,
     PIN_ONE,
@@ -94,6 +104,6 @@ typedef enum {
     PIN_SEVEN
 } PinName;
 
-extern TaskHandle_t UltrasonicHandle;
+extern SemaphoreHandle_t xDataMutex;
 
 #endif

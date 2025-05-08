@@ -26,6 +26,8 @@
 #define I2C1_MDR                (*((volatile uint32_t *)(I2C1_BASE + 0x008)))
 #define I2C1_MTPR               (*((volatile uint32_t *)(I2C1_BASE + 0x00C)))
 #define I2C1_MCR                (*((volatile uint32_t *)(I2C1_BASE + 0x020)))
+	
+
 
 // Function prototypes
 void I2C1_Init(void);  

@@ -5,6 +5,11 @@
 
 extern bool drive;
 
+extern bool gear_state;
+
+extern SemaphoreHandle_t xGearSemaphore;
+
+
 void GearCheckTask(void *pvParameters);
 
 

@@ -2,6 +2,8 @@
 
 bool buzz = false;
 
+SemaphoreHandle_t xBuzzerSemaphore = NULL;
+
 
 void check_buzz(void){
 	
@@ -13,6 +15,59 @@ void check_buzz(void){
 
 	}
 
+}
+
+
+
+void vBuzzerTask(void *pvParameters) {
+    // Take semaphore initially to block task until triggered
+    xSemaphoreTake(xBuzzerSemaphore, 0);
+    
+    while(1) {
+        // Wait for semaphore (released when distance changes)
+        xSemaphoreTake(xBuzzerSemaphore, portMAX_DELAY);
+        
+        // Acquire mutex to safely read shared data
+        xSemaphoreTake(xDataMutex, portMAX_DELAY);
+        
+        bool local_gear = gear_state;
+        float local_distance = distance;
+        
+        // Release mutex as soon as possible
+        xSemaphoreGive(xDataMutex);
+        
+        // Check if in reverse gear
+        if (local_gear == REVERSE_GEAR) {
+            // Control buzzer and LEDs based on distance
+            if (local_distance < 10) {
+                // Very close - continuous beep
+								RGB_LED_Red();
+                DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Continuous beep
+            } else if (local_distance < 30) {
+                // Medium distance - fast beep
+								RGB_LED_Yellow();
+
+                DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Beep
+                vTaskDelay(100 / portTICK_PERIOD_MS);
+                DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
+                vTaskDelay(100 / portTICK_PERIOD_MS);
+                xSemaphoreGive(xBuzzerSemaphore); // Re-trigger self
+            } else if (local_distance < 50) {
+                // Far distance - slow beep
+								RGB_LED_Green();
+
+                DIO_WritePin(PORT_F, PIN_FOUR, ONE); // Beep
+                vTaskDelay(200 / portTICK_PERIOD_MS);
+                DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
+                vTaskDelay(500 / portTICK_PERIOD_MS);
+                xSemaphoreGive(xBuzzerSemaphore); // Re-trigger self
+            } else {
+                // No obstacle detected
+								RGB_LED_Green();
+                DIO_WritePin(PORT_F, PIN_FOUR, ZERO);
+            }
+        }
+    }
 }
 
 //void vBuzzerTask(void *pvParameters)

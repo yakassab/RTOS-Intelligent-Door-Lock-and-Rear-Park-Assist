@@ -3,6 +3,11 @@
 #define TRIG_PIN  (1 << 0)  // PB0
 #define ECHO_PIN  (1 << 3)  // PB3
 
+SemaphoreHandle_t xUltrasonicSemaphore = NULL;
+TaskHandle_t UltrasonicHandle = NULL;
+
+float distance = 0;
+
 
 uint32_t latest_distance = 0;
 
@@ -11,6 +16,38 @@ static void Timer1A_Init(void);
 static uint32_t get_pulse_duration(void);
 static void delayUs(int us);
 static void delayMs(int ms);
+
+
+
+void vUltrasonicTask(void *pvParameters) {
+    // Take semaphore initially to block task until triggered by gear task
+    xSemaphoreTake(xUltrasonicSemaphore, 0);
+    
+    while(1) {
+        // Wait for semaphore or check periodically when in reverse gear
+        if (xSemaphoreTake(xUltrasonicSemaphore, 100 / portTICK_PERIOD_MS) == pdTRUE || 
+            (gear_state == REVERSE_GEAR)) {
+            
+            // Acquire mutex before accessing shared data
+            xSemaphoreTake(xDataMutex, portMAX_DELAY);
+            
+            // Measure distance with ultrasonic sensor
+            distance = Ultrasonic_GetDistance();  // Using correct function name
+            
+            // Release mutex after updating shared data
+            xSemaphoreGive(xDataMutex);
+            
+            // Signal buzzer task to respond to new distance
+            xSemaphoreGive(xBuzzerSemaphore);
+            
+            // Continue measurements while in reverse gear
+            if (gear_state == REVERSE_GEAR) {
+                vTaskDelay(100 / portTICK_PERIOD_MS);
+                xSemaphoreGive(xUltrasonicSemaphore); // Re-trigger self for continuous measurement
+            }
+        }
+    }
+}
 
 
 void Ultrasonic_Init(void) {

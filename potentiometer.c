@@ -108,3 +108,20 @@ static uint32_t ADC0_Read(void) {
 //    }
 //} 
 
+
+
+void vSpeedTask(void *pvParameters) {
+    while(1) {
+        // Acquire mutex before accessing shared data
+        xSemaphoreTake(xDataMutex, portMAX_DELAY);
+        
+        // Read speed from potentiometer
+        speed = Potentiometer_GetSpeed();  // Using correct function name
+        
+        // Release mutex after updating shared data
+        xSemaphoreGive(xDataMutex);
+        
+        // Check speed periodically
+        vTaskDelay(30 / portTICK_PERIOD_MS);
+    }
+}

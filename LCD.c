@@ -1,5 +1,60 @@
 #include "headers.h"
 
+void DisplayTask(void *pvParameters) {
+    while(1) {
+        // Acquire mutex to safely read shared data
+        xSemaphoreTake(xDataMutex, portMAX_DELAY);
+        
+        // Make local copies of shared data
+        bool local_ignition = ignition_state;
+        bool local_gear = gear_state;
+        bool local_door = door_state;
+        bool local_lock = lock_state;
+        int local_speed = speed;
+        float local_distance = distance;
+        
+        // Release mutex as soon as possible
+        xSemaphoreGive(xDataMutex);
+        
+        // Clear display
+        LCD_command(LCD_CLEAR);
+        
+        // Update first line of display
+        LCD_set_cursor(0, 0);
+        if (local_ignition == IGNITION_ON) {
+            LCD_write_string("IGN:ON ");
+        } else {
+            LCD_write_string("IGN:OFF ");
+        }
+        
+        if (local_gear == REVERSE_GEAR) {
+            LCD_write_string("GEAR:R");
+        } else {
+            LCD_write_string("GEAR:D");
+        }
+        
+        // Update second line of display
+        LCD_set_cursor(1, 0);
+        if (local_gear == REVERSE_GEAR) {
+            LCD_print_int(local_distance);
+            LCD_write_string("cm");
+        } else {
+            
+        }
+				
+        if (local_door == DOOR_OPEN && local_speed > 3) {
+						LCD_set_cursor(1, 8);
+            LCD_write_string(" DOOR!   ");
+        } else {
+					LCD_set_cursor(1, 8);
+				LCD_write_string("SPEED:");
+        LCD_print_int(local_speed);}
+        
+        // Update display periodically
+        vTaskDelay(100 / portTICK_PERIOD_MS);
+    }
+}
+
 void display(void){
 	
 	if (!ignition && !ignition_changed){ // car is off

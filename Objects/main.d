@@ -13,8 +13,7 @@
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\armv7m_mpu.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h \
-  LCD.h DIO.h potentiometer.h ignition.h gear.h ultrasonic.h buzzer.h \
-  door.h \
+  LCD.h DIO.h potentiometer.h ignition.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\FreeRTOS.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
   RTE\RTOS\FreeRTOSConfig.h RTE\_Target_1\RTE_Components.h \
@@ -27,7 +26,8 @@
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\mpu_wrappers.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\task.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\list.h \
-  C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\queue.h \
   C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\semphr.h \
-  inc\hw_memmap.h inc\hw_types.h inc\hw_ints.h driverlib\gpio.h \
-  driverlib\interrupt.h driverlib\sysctl.h
+  C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\Source\include\queue.h \
+  gear.h ultrasonic.h buzzer.h door.h inc\hw_memmap.h inc\hw_types.h \
+  inc\hw_ints.h driverlib\gpio.h driverlib\interrupt.h \
+  driverlib\sysctl.h
