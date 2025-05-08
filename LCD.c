@@ -17,55 +17,20 @@ void DisplayTask(void *pvParameters) {
         xSemaphoreGive(xDataMutex);
         
         // Clear display
-        LCD_command(LCD_CLEAR);
+        //LCD_command(LCD_CLEAR);
         
         // Update first line of display
-        LCD_set_cursor(0, 0);
-        if (local_ignition == IGNITION_ON) {
-            LCD_write_string("IGN:ON ");
-        } else {
-            LCD_write_string("IGN:OFF ");
-        }
-        
-        if (local_gear == REVERSE_GEAR) {
-            LCD_write_string("GEAR:R");
-        } else {
-            LCD_write_string("GEAR:D");
-        }
-        
-        // Update second line of display
-        LCD_set_cursor(1, 0);
-        if (local_gear == REVERSE_GEAR) {
-            LCD_print_int(local_distance);
-            LCD_write_string("cm");
-        } else {
+        //LCD_set_cursor(0, 0);
+			
+			if (!local_ignition && !ignition_changed){ // car is off
+				LCD_command(LCD_CLEAR);
+				continue;
+			}
+	
+        if (ignition_changed) {
             
-        }
-				
-        if (local_door == DOOR_OPEN && local_speed > 3) {
-						LCD_set_cursor(1, 8);
-            LCD_write_string(" DOOR!   ");
-        } else {
-					LCD_set_cursor(1, 8);
-				LCD_write_string("SPEED:");
-        LCD_print_int(local_speed);}
-        
-        // Update display periodically
-        vTaskDelay(100 / portTICK_PERIOD_MS);
-    }
-}
-
-void display(void){
-	
-	if (!ignition && !ignition_changed){ // car is off
-		LCD_command(LCD_CLEAR);
-		return;
-	}
-	
-	
-	if (ignition_changed){
-		LCD_command(LCD_CLEAR);
-		if (ignition){
+		
+		if (local_ignition){
 
 		LCD_set_cursor(0, 0);
     LCD_write_string("IGNITION ON ");
@@ -73,42 +38,123 @@ void display(void){
 			for (int i = 0; i < 11; ++i){
 				LCD_set_cursor(1, i);
 				LCD_write_string("=");
-				delay_ms(500);
+				delay_ms(100);
 			}
 			
 			
 	
-	} else {
-		
+	} else if (!local_ignition) {
+		LCD_command(LCD_CLEAR);
 		LCD_set_cursor(0, 0);
     LCD_write_string("IGNITION OFF");
 		
 		for (int i = 0; i < 12; ++i){
 			LCD_set_cursor(1, i);
 			LCD_write_string("=");
-			delay_ms(500);
+			delay_ms(100);
 		}
-		
-		LCD_command(LCD_CLEAR);
-		LCD_set_cursor(0,0);
-		LCD_write_string("Doors Unlocked");
-		delay_ms(4000);
-		
-	}
-	
-	ignition_changed = false;
-	LCD_command(LCD_CLEAR);
+        }
+				LCD_command(LCD_CLEAR);
+				ignition_changed = false;
+				continue;
+			}
+						LCD_set_cursor(1, 10);
+
+        if (local_gear == REVERSE_GEAR) {
+            LCD_write_string("GEAR:R");
+        } else {
+            LCD_write_string("GEAR:D");
+						LCD_set_cursor(1, 0);
+
+						LCD_write_string("          ");
+        }
+        
+        // Update second line of display
+        LCD_set_cursor(1, 0);
+        if (local_gear == REVERSE_GEAR) {
+					if (local_distance < 100){
+            LCD_print_int(local_distance);
+            LCD_write_string("cm");
+						if (local_distance < 10)LCD_write_string(" ");
+					
+					}
+        } else {
+            
+        }
+				
+        if (local_door == DOOR_OPEN && local_speed > 3) {
+						LCD_set_cursor(0, 8);
+            LCD_write_string(" DOOR!   ");
+        } else {
+					LCD_set_cursor(0, 8);
+				LCD_write_string("SPEED:");
+					
+				LCD_print_int(local_speed);
+				if (local_speed< 10){
+				LCD_write_string(" ");
+				}
+				
+				}
+			     
+        // Update display periodically
+        vTaskDelay(100 / portTICK_PERIOD_MS);
+    }
 }
 
-	// speed
-	LCD_set_cursor(0, 14);
-	LCD_print_int(speed);
-if (speed < 10){
-			clear_cell(0, 15);
-	}
+//void display(void){
+//	
+//	if (!ignition && !ignition_changed){ // car is off
+//		LCD_command(LCD_CLEAR);
+//		return;
+//	}
+//	
+//	
+//	if (ignition_changed){
+//		LCD_command(LCD_CLEAR);
+//		if (ignition){
 
-	return;
-}
+//		LCD_set_cursor(0, 0);
+//    LCD_write_string("IGNITION ON ");
+//			
+//			for (int i = 0; i < 11; ++i){
+//				LCD_set_cursor(1, i);
+//				LCD_write_string("=");
+//				delay_ms(500);
+//			}
+//			
+//			
+//	
+//	} else {
+//		
+//		LCD_set_cursor(0, 0);
+//    LCD_write_string("IGNITION OFF");
+//		
+//		for (int i = 0; i < 12; ++i){
+//			LCD_set_cursor(1, i);
+//			LCD_write_string("=");
+//			delay_ms(500);
+//		}
+//		
+//		LCD_command(LCD_CLEAR);
+//		LCD_set_cursor(0,0);
+//		LCD_write_string("Doors Unlocked");
+//		delay_ms(4000);
+//		
+//	}
+//	
+//	ignition_changed = false;
+//	LCD_command(LCD_CLEAR);
+//}
+
+//	// speed
+//	LCD_set_cursor(0, 14);
+//	LCD_print_int(speed);
+//if (speed < 10){
+//			clear_cell(0, 15);
+//	}
+
+//	return;
+//}
 
 //void DisplayTask(void *pvParameters){
 //    /* Initialize periodic timing */

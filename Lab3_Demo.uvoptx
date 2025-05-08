@@ -189,6 +189,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>distance</ItemText>
         </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>local_speed</ItemText>
+        </Ww>
       </WatchWindow1>
       <ScvdPack>
         <Filename>C:\Users\yakas\AppData\Local\Arm\Packs\ARM\CMSIS-FreeRTOS\11.1.0\CMSIS\RTOS2\FreeRTOS\FreeRTOS.scvd</Filename>

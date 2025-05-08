@@ -8,8 +8,6 @@ extern uint32_t latest_distance;
 extern TaskHandle_t UltrasonicHandle;
 extern SemaphoreHandle_t xUltrasonicSemaphore;
 
-
-
 extern float distance;
 
 
