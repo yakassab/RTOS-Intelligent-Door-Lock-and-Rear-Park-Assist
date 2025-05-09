@@ -4,8 +4,8 @@
 
 // Define variables
 bool ignition = false;
-bool ignition_changed = false;
-bool ignition_state = IGNITION_OFF;
+bool ignition_changed = true;
+bool ignition_state;
 
 SemaphoreHandle_t xIgnitionSemaphore = NULL;
 
@@ -23,6 +23,8 @@ void IgnitionCheckTask(void *pvParameters) {
     // Take semaphore initially to block task until triggered
     xSemaphoreTake(xIgnitionSemaphore, 0);
     bool new_state;
+	  ignition_state = GET_BIT(GPIO_PORTE_DATA_R, THREE);
+
     while(1) {
         // Wait for semaphore (released by interrupt when ignition state changes)
         xSemaphoreTake(xIgnitionSemaphore, portMAX_DELAY);
@@ -38,7 +40,10 @@ void IgnitionCheckTask(void *pvParameters) {
         ignition_state = new_state;
         ignition_changed = true;
 			} 
-       
+       if (ignition_changed && !ignition_state){
+						door_locked = false;
+						lock_changed = true;
+			 }
         
         // Release mutex after updating shared data
         xSemaphoreGive(xDataMutex);

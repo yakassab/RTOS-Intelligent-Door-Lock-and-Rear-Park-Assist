@@ -121,6 +121,7 @@ int main(void)
     xTaskCreate(vSpeedTask, "Speed Task", 128, NULL, 2, NULL); 
     xTaskCreate(vBuzzerTask, "BuzzerTask", 128, NULL, 2, NULL);
     xTaskCreate(DoorCheckTask, "DoorTask", 128, NULL, 2, NULL);
+		xTaskCreate(DoorLockTask, "DoorLock", 128, NULL, 2, NULL);
     xTaskCreate(DisplayTask, "Display Task", 128, NULL, 1, NULL); 
     
     // Start the scheduler

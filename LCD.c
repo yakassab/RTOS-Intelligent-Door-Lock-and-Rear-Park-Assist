@@ -10,7 +10,7 @@ void DisplayTask(void *pvParameters) {
         bool local_gear = gear_state;
         bool local_door = door_state;
         bool local_lock = lock_state;
-        int local_speed = speed;
+        float local_speed = speed;
         float local_distance = distance;
         
         // Release mutex as soon as possible
@@ -33,9 +33,9 @@ void DisplayTask(void *pvParameters) {
 		if (local_ignition){
 
 		LCD_set_cursor(0, 0);
-    LCD_write_string("IGNITION ON ");
+    LCD_write_string("  IGNITION ON!");
 			
-			for (int i = 0; i < 11; ++i){
+			for (int i = 0; i < 16; ++i){
 				LCD_set_cursor(1, i);
 				LCD_write_string("=");
 				delay_ms(100);
@@ -46,18 +46,74 @@ void DisplayTask(void *pvParameters) {
 	} else if (!local_ignition) {
 		LCD_command(LCD_CLEAR);
 		LCD_set_cursor(0, 0);
-    LCD_write_string("IGNITION OFF");
+    LCD_write_string("  IGNITION OFF");
 		
-		for (int i = 0; i < 12; ++i){
+		for (int i = 0; i < 16; ++i){
 			LCD_set_cursor(1, i);
 			LCD_write_string("=");
 			delay_ms(100);
 		}
+		LCD_command(LCD_CLEAR);
+				LCD_set_cursor(0, 0);
+    LCD_write_string(" Doors Unlocked");
+					delay_ms(500);
+
         }
 				LCD_command(LCD_CLEAR);
 				ignition_changed = false;
 				continue;
 			}
+				
+			if (lock_changed){
+					if (local_lock){
+							LCD_set_cursor(0,0);
+							LCD_write_string("Locked");
+					} else if (!local_lock){
+					
+							LCD_set_cursor(0,0);
+
+							LCD_write_string("Unlocked");
+					}
+					vTaskDelay(300);
+					LCD_set_cursor(0,0);
+
+					LCD_write_string("        ");
+
+
+					lock_changed = false;
+			}
+			
+			if (door_changed){
+				if (local_door){
+				LCD_set_cursor(0,0);
+							LCD_write_string("Opened");
+				}else if (!local_door){
+					
+							LCD_set_cursor(0,0);
+
+							LCD_write_string("Closed");
+					}
+				vTaskDelay(300);
+					LCD_set_cursor(0,0);
+
+					LCD_write_string("        ");
+					
+					door_changed = false;
+			}
+			
+			if (cant_unlock_door){
+				LCD_set_cursor(0,0);
+
+					LCD_write_string("Invalid");
+				vTaskDelay(300);
+					LCD_set_cursor(0,0);
+
+					LCD_write_string("        ");
+			
+				cant_unlock_door = false;
+			}
+			
+			
 						LCD_set_cursor(1, 10);
 
         if (local_gear == REVERSE_GEAR) {
