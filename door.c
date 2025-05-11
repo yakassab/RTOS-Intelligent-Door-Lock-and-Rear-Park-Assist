@@ -41,8 +41,8 @@ void DoorCheckTask(void *pvParameters) {
         
         // Read door state
 				if (!door_locked){
-        door_state = GET_BIT(GPIO_PORTD_DATA_R, ONE);
-        } else if(door_locked && GET_BIT(GPIO_PORTD_DATA_R, ONE)){
+        door_state = GET_BIT(GPIO_PORTD_DATA_R, TWO);
+        } else if(door_locked && GET_BIT(GPIO_PORTD_DATA_R, TWO)){
 					cant_unlock_door = true;
 				}
 				

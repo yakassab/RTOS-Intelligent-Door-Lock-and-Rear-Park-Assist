@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Lab3_Demo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Lab3_Demo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Sun May 11 18:55:45 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Sun May 11 19:59:16 2025
 <BR><P>
 <H3>Maximum Stack Usage =        300 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1337,8 +1337,8 @@ Global Symbols
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GearCheckTask
 </UL>
 
-<P><STRONG><a name="[80]"></a>DisplayTask</STRONG> (Thumb, 1036 bytes, Stack size 48 bytes, lcd.o(.text.DisplayTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = DisplayTask &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[80]"></a>DisplayTask</STRONG> (Thumb, 1060 bytes, Stack size 56 bytes, lcd.o(.text.DisplayTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = DisplayTask &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_print_int
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
@@ -1465,7 +1465,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
 </UL>
 
-<P><STRONG><a name="[b8]"></a>InterruptInit</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, main.o(.text.InterruptInit))
+<P><STRONG><a name="[b8]"></a>InterruptInit</STRONG> (Thumb, 146 bytes, Stack size 40 bytes, main.o(.text.InterruptInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = InterruptInit &rArr; GPIOIntRegister &rArr; _GPIOIntNumberGet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntEnable
@@ -1670,7 +1670,7 @@ Global Symbols
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[96]"></a>main</STRONG> (Thumb, 672 bytes, Stack size 56 bytes, main.o(.text.main))
+<P><STRONG><a name="[96]"></a>main</STRONG> (Thumb, 670 bytes, Stack size 56 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 300 + Unknown Stack Size
 <LI>Call Chain = main &rArr; vTaskStartScheduler &rArr; prvCreateIdleTasks &rArr; xTaskCreateStatic &rArr; prvCreateStaticTask &rArr; prvInitialiseNewTask &rArr; pxPortInitialiseStack
 </UL>
@@ -1816,9 +1816,9 @@ Global Symbols
 <P><STRONG><a name="[f1]"></a>vPortFree</STRONG> (Thumb, 118 bytes, Stack size 24 bytes, heap_4.o(.text.vPortFree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueDelete
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands

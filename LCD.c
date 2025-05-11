@@ -137,8 +137,8 @@ void DisplayTask(void *pvParameters) {
 						LCD_set_cursor(0, 8);
             LCD_write_string(" DOOR!   ");
         } else {
-//						LCD_set_cursor(0, 8);
-//            LCD_write_string("    ");
+						LCD_set_cursor(0, 8);
+            LCD_write_string("    ");
 					LCD_set_cursor(0, 12);
 				LCD_write_string("S:");
 					
