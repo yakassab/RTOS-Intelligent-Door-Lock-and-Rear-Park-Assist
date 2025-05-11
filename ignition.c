@@ -41,8 +41,11 @@ void IgnitionCheckTask(void *pvParameters) {
         ignition_changed = true;
 			} 
        if (ignition_changed && !ignition_state){
-						door_locked = false;
+						lock_state = false;
 						lock_changed = true;
+						manual_override = false;
+				    speed_lock = false;
+						first = true;
 			 }
         
         // Release mutex after updating shared data

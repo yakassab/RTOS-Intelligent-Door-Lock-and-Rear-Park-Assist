@@ -9,6 +9,9 @@ extern bool door_locked;
 extern bool lock_changed;
 extern bool door_changed;
 
+extern bool first;
+
+
 extern bool manual_override;
 
 extern bool cant_unlock_door;

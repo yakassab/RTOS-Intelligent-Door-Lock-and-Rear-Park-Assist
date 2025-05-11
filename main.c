@@ -26,7 +26,7 @@
     PE3 to Ignition
     PE5 to Lock
     
-    PD2 to Door
+    PD1 to Door
 */
 
 SemaphoreHandle_t xDataMutex = NULL;
@@ -54,7 +54,7 @@ void InterruptInit(void) {
     GPIOIntTypeSet(GPIO_PORTE_BASE, GPIO_PIN_5, GPIO_BOTH_EDGES); // LOCK
     
     // Set interrupt triggering types for PORT D pins
-    GPIOIntTypeSet(GPIO_PORTD_BASE, GPIO_PIN_2, GPIO_BOTH_EDGES); // DOOR
+    GPIOIntTypeSet(GPIO_PORTD_BASE, GPIO_PIN_1, GPIO_BOTH_EDGES); // DOOR
     
     // Set interrupt priorities
     IntPrioritySet(PORT_E, configMAX_SYSCALL_INTERRUPT_PRIORITY);
@@ -66,7 +66,7 @@ void InterruptInit(void) {
     GPIOIntEnable(GPIO_PORTE_BASE, GPIO_PIN_5); // LOCK
     
     // Enable interrupts for PORT D pins
-    GPIOIntEnable(GPIO_PORTD_BASE, GPIO_PIN_2); // DOOR
+    GPIOIntEnable(GPIO_PORTD_BASE, GPIO_PIN_1); // DOOR
 }
 
 /************************************************************************************************************************************************
@@ -93,7 +93,7 @@ int main(void)
     // Configure input pins
     DIO_Configure(PORT_E, PIN_THREE, DIGITAL, INPUT, PDR); // IGNITION
     DIO_Configure(PORT_E, PIN_ONE, DIGITAL, INPUT, PDR);   // GEAR
-    DIO_Configure(PORT_D, PIN_TWO, DIGITAL, INPUT, PDR);   // DOOR
+    DIO_Configure(PORT_D, PIN_ONE, DIGITAL, INPUT, PDR);   // DOOR
     DIO_Configure(PORT_E, PIN_FIVE, DIGITAL, INPUT, PDR);  // LOCK
 
     // Configure output pins
@@ -158,8 +158,8 @@ void ISRHandlers(void) {
         xSemaphoreGiveFromISR(xGearSemaphore, &xHigherPriorityTaskWoken);
     }
     
-    // Check if interrupt came from DOOR switch (PORT_D, PIN_2)
-    else if (GPIOIntStatus(GPIO_PORTD_BASE, true) & GPIO_PIN_2) {
+    // Check if interrupt came from DOOR switch (PORT_D, PIN_1)
+    else if (GPIOIntStatus(GPIO_PORTD_BASE, true) & GPIO_PIN_1) {
         // Clear the interrupt flag
         GPIOIntClear(GPIO_PORTD_BASE, GPIO_PIN_2);
         

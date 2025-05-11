@@ -7,6 +7,8 @@ bool door_changed = false;
 
 bool cant_unlock_door = false;
 
+bool first = true;
+
 bool lock_state = UNLOCKED;
 bool door_state = DOOR_CLOSED;
 
@@ -39,8 +41,8 @@ void DoorCheckTask(void *pvParameters) {
         
         // Read door state
 				if (!door_locked){
-        door_state = GET_BIT(GPIO_PORTD_DATA_R, TWO);
-        } else if(door_locked && GET_BIT(GPIO_PORTD_DATA_R, TWO)){
+        door_state = GET_BIT(GPIO_PORTD_DATA_R, ONE);
+        } else if(door_locked && GET_BIT(GPIO_PORTD_DATA_R, ONE)){
 					cant_unlock_door = true;
 				}
 				
@@ -77,8 +79,8 @@ void DoorLockTask(void *pvParameters) {
         xSemaphoreTake(xDataMutex, portMAX_DELAY);
         
         // Check if speed exceeds 20km/h
-        if (ignition_state == IGNITION_ON && speed > 20) {
-            speed_lock = true;
+        if (ignition_state == IGNITION_ON && speed > 10) {
+            speed_lock = true;	
         }
         
         // Read DIP switch state for manual override
@@ -96,11 +98,16 @@ void DoorLockTask(void *pvParameters) {
         // Update door lock state
         // If manual override is active, use switch state
         // Otherwise use speed_lock
-        if (manual_override) {
-            lock_state = currentSwitchState ? LOCKED : UNLOCKED;
-        } else {
+        if (first && speed_lock) {
             lock_state = speed_lock ? LOCKED : UNLOCKED;
+					  manual_override = false;
+						first = false;
+        } else if (manual_override)   {
+					            lock_state = currentSwitchState ? LOCKED : UNLOCKED;
+
         }
+				
+				
         
         // Check if lock state has changed
         if (prev_lock_state != lock_state) {
@@ -113,6 +120,8 @@ void DoorLockTask(void *pvParameters) {
         } else {
             door_locked = false;
         }
+				
+				
         
         // Release mutex after accessing shared data
         xSemaphoreGive(xDataMutex);

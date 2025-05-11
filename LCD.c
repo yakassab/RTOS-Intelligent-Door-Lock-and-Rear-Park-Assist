@@ -64,42 +64,37 @@ void DisplayTask(void *pvParameters) {
 				continue;
 			}
 				
-			if (lock_changed){
+
 					if (local_lock){
-							LCD_set_cursor(0,0);
-							LCD_write_string("Locked");
+							LCD_set_cursor(0,3);
+					LCD_write_string("[");
+							LCD_write_string("L");
+										LCD_write_string("]");
 					} else if (!local_lock){
-					
-							LCD_set_cursor(0,0);
-
-							LCD_write_string("Unlocked");
+							LCD_set_cursor(0,3);
+					LCD_write_string("[");
+							LCD_write_string("U");
+										LCD_write_string("]");
 					}
-					vTaskDelay(300);
-					LCD_set_cursor(0,0);
+					
 
-					LCD_write_string("        ");
-
-
-					lock_changed = false;
-			}
 			
-			if (door_changed){
+
 				if (local_door){
 				LCD_set_cursor(0,0);
-							LCD_write_string("Opened");
+					LCD_write_string("[");
+							LCD_write_string("O");
+										LCD_write_string("]");
+
 				}else if (!local_door){
 					
 							LCD_set_cursor(0,0);
-
-							LCD_write_string("Closed");
+					LCD_write_string("[");
+							LCD_write_string("C");
+										LCD_write_string("]");
 					}
-				vTaskDelay(300);
-					LCD_set_cursor(0,0);
-
-					LCD_write_string("        ");
 					
-					door_changed = false;
-			}
+		
 			
 			if (cant_unlock_door){
 				LCD_set_cursor(0,0);
@@ -142,8 +137,10 @@ void DisplayTask(void *pvParameters) {
 						LCD_set_cursor(0, 8);
             LCD_write_string(" DOOR!   ");
         } else {
-					LCD_set_cursor(0, 8);
-				LCD_write_string("SPEED:");
+//						LCD_set_cursor(0, 8);
+//            LCD_write_string("    ");
+					LCD_set_cursor(0, 12);
+				LCD_write_string("S:");
 					
 				LCD_print_int(local_speed);
 				if (local_speed< 10){
